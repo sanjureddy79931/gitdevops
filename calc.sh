@@ -8,3 +8,6 @@ python3 sub.py
 
 echo "--Multiplication--"
 python3 mul.py
+
+echo "--Division--"
+python3 div.py
