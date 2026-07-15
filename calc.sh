@@ -5,3 +5,6 @@ python3 add.py
 
 echo "--Subtraction--"
 python3 sub.py
+
+echo "--Multiplication--"
+python3 mul.py
