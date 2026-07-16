@@ -20,7 +20,7 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 sh 'kubectl apply -f deployment.yaml --validate=false'
-                sh 'kubectl apply -f service.yaml --validate=false'
+                sh 'kubectl apply -f service.yml --validate=false'
                 sh 'kubectl rollout restart deployment/hello-python'
             }
         }
