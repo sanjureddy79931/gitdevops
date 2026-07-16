@@ -16,16 +16,12 @@ pipeline {
             }
         }
 
-        stage('Load Image to Minikube') {
-            steps {
-                sh 'minikube image load hello-python:latest'
-            }
-        }
 
         stage('Deploy to Kubernetes') {
             steps {
                 sh 'kubectl apply -f deployment.yaml'
                 sh 'kubectl apply -f service.yaml'
+                sh 'kubectl rollout restart deployment/hello-python'
             }
         }
 
