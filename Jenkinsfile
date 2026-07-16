@@ -1,9 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-        KUBECONFIG= '/home/tcs/.kube/config'
-    }
     stages {
 
         stage('Check Workspace') {
@@ -22,8 +19,8 @@ pipeline {
 
         stage('Deploy to Kubernetes') {
             steps {
-                sh 'kubectl apply -f deployment.yaml'
-                sh 'kubectl apply -f service.yaml'
+                sh 'kubectl apply -f deployment.yaml --validate=false'
+                sh 'kubectl apply -f service.yaml --validate=false'
                 sh 'kubectl rollout restart deployment/hello-python'
             }
         }
