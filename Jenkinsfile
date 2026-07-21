@@ -12,10 +12,8 @@ pipeline {
 
                 stage('Build Docker Image') {
             steps {
-                sh '''
-                eval $(minikube docker-env)
-                docker build -t hello-python .
-                '''
+                sh 'docker bilt -t hello-python .'
+                sh 'minikube image load hello-python'
             }
         }
 
