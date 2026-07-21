@@ -13,8 +13,8 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 sh
-                '''$(minikube docker-env)
-                docker build -t hello-python:latest .
+                '''eval $(minikube docker-env)
+               docker build -t hello-python:latest .
                 '''
             }
         }
