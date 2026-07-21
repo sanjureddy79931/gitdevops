@@ -8,7 +8,7 @@ with open("numbers.csv",mode="r") as f:
 	for row in reader:
 		num1=float(row["num1"])
 		num2=float(row["num2"])
-		print(f"Addition Result -> {num1}-{num2}={num1-num2}")
+		print(f"Addition Result -> {num1}+{num2}={num1+num2}")
 
 g.set(total)
 push_to_gateway("192.168.49.1:9091",job="add_job",registry=REGISTRY)	
