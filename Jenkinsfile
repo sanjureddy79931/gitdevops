@@ -10,14 +10,15 @@ pipeline {
             }
         }
 
-        stage('Build Docker Image') {
+                stage('Build Docker Image') {
             steps {
-                sh
-                '''eval $(minikube docker-env)
-               docker build -t hello-python:latest .
+                sh '''
+                eval $(minikube docker-env)
+                docker build -t hello-python .
                 '''
             }
         }
+
 
 
         stage('Deploy to Kubernetes') {
