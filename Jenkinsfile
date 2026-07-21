@@ -12,7 +12,7 @@ pipeline {
 
                 stage('Build Docker Image') {
             steps {
-                sh 'docker build -t hello-python .'
+                sh 'docker build --no-cache -t hello-python .'
                 sh 'minikube image load hello-python'
             }
         }
