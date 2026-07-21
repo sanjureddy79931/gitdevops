@@ -32,6 +32,8 @@ pipeline {
                 sh 'kubectl get deployments'
                 sh 'kubectl get pods'
                 sh 'kubectl get services'
+                sh 'kubectl wait --for=condition=complete job/hello-python --timeout=60s'
+                sh 'kubectl logs -l job-name=hello-python'
             }
         }
     }
