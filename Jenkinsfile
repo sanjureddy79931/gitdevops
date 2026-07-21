@@ -21,6 +21,8 @@ pipeline {
 
         stage('Deploy to Kubernetes') {
             steps {
+                sh 'kubectl delete job hello-python --ignore-not-found=true'
+                sh 'kubectl delete pod -l job-name=hello-python --ignore-not-found=true'
                 sh 'kubectl apply -f deployment.yaml --validate=false'
                 sh 'kubectl apply -f service.yml --validate=false'
                 sh 'kubectl rollout restart deployment/hello-python'
