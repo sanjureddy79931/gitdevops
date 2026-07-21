@@ -1,23 +1,17 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: batch/v1
+kind: Job
 
 metadata:
   name: hello-python
 
 spec:
-  replicas: 3
-
-  selector:
-    matchLabels:
-      app: hello-python
+  
 
   template:
-    metadata:
-      labels:
-        app: hello-python
-
+  
     spec:
       containers:
       - name: hello-python
         image: hello-python:latest
         imagePullPolicy: Never
+      restartPolicy: Never  
